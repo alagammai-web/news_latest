@@ -10,7 +10,7 @@ export class NewsapiService {
   constructor(private http: HttpClient) { }
 
   initSources(){
-    return this.http.get('https://saurav.tech/NewsAPI/top-headlines/category/health/in.json');
+    return this.http.get('https://saurav.tech/NewsAPI/everything/cnn.json');
  }
  initArticles(){
   return this.http.get('https://saurav.tech/NewsAPI/everything/cnn.json');

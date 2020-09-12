@@ -8,9 +8,9 @@ import { NewsapiService } from './services/newsapi.service';
 })
 export class AppComponent {
   title = 'Latest News';
-sidenavopen = false;
-mArticles: Array<object>;
-mSources: Array<object>;
+// sidenavopen = false;
+mArticles: Array<any>;
+mSources: Array<any>;
 
     constructor(private newsapiService: NewsapiService) {
 
@@ -28,17 +28,17 @@ mSources: Array<object>;
     );
 
     this.newsapiService.initSources().subscribe((resp)=>{
-    this.mSources = resp['sources'];
+    this.mSources = resp['source'];
     },
     (err)=>{
-    console.log("error while fetch articles");
+    console.log('error while fetch articles');
     }
     );
     }
 
-    sidenav() {
-    this.sidenavopen = !this.sidenavopen;
-    }
+    // sidenav() {
+    // this.sidenavopen = !this.sidenavopen;
+    // }
 
     sourceclick(ss){
     this.newsapiService.getArticlesByID(ss).subscribe((resp) => {
