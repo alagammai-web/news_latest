@@ -34,18 +34,17 @@
         background: #00000091;
         display: inline-block;
         font-weight: 100;
-        padding: 5px 10px;">Find your latest news here</h4>
+        padding: 5px 10px;">Free Api data</h4>
       </div>
       <div class="col-md-12 content-flour">
         <div class="articles" *ngFor="let arti of mArticles">
           <div class="row">
             <div class="col-md-5">
-              <img src={{arti.urlToImage}}>
+              <img src={{arti.url}}>
             </div>
             <div class="col-md-7">
               <h2>{{arti.title}}</h2>
-              <h3>{{arti.source.name}}</h3>
-              <p>{{arti.description}}</p>
+              <p>{{arti.thumbnailUrl}}</p>
               <a href={{arti.url}} target="_blank">View More</a>
             </div>
           </div>

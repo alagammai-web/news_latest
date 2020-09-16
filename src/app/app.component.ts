@@ -7,10 +7,10 @@ import { NewsapiService } from './services/newsapi.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Latest News';
+  title = 'freeAPI Data';
 // sidenavopen = false;
-mArticles: Array<any>;
-mSources: Array<any>;
+mArticles: any;
+// mSources: Array<any>;
 
     constructor(private newsapiService: NewsapiService) {
 
@@ -18,34 +18,34 @@ mSources: Array<any>;
 
 
     ngOnInit() {
-    this.newsapiService.initArticles().subscribe(
+    this.newsapiService.initSources().subscribe(
     (resp) => {
-    this.mArticles = resp['articles'];
+    this.mArticles = resp;
     },
     (err) => {
     console.log('error occred while fetch data');
     }
     );
 
-    this.newsapiService.initSources().subscribe((resp)=>{
-    this.mSources = resp['source'];
-    },
-    (err)=>{
-    console.log('error while fetch articles');
-    }
-    );
+    // this.newsapiService.initSources().subscribe((resp)=>{
+    // this.mSources = resp['source'];
+    // },
+    // (err)=>{
+    // console.log('error while fetch articles');
+    // }
+    // );
     }
 
     // sidenav() {
     // this.sidenavopen = !this.sidenavopen;
     // }
 
-    sourceclick(ss){
-    this.newsapiService.getArticlesByID(ss).subscribe((resp) => {
-    this.mArticles = resp['articles'];
-    },
-    (err) => {
-    console.log('error came');
-    });
-    }
+    // sourceclick(ss){
+    // this.newsapiService.getArticlesByID(ss).subscribe((resp) => {
+    // this.mArticles = resp['articles'];
+    // },
+    // (err) => {
+    // console.log('error came');
+    // });
+    // }
 }
